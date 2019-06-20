@@ -23,7 +23,7 @@ class MCButton: UIButton {
         layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.8
-        layer.shadowColor = UIColor.red.cgColor
+        layer.shadowColor = UIColor.primaryOne.cgColor
     }
     
     fileprivate func setupConstraints(_ width: CGFloat,_ height: CGFloat) {
@@ -33,7 +33,7 @@ class MCButton: UIButton {
     }
     
     fileprivate func setupStyles(_ text: String) {
-        backgroundColor = .red
+        backgroundColor = .primaryOne
         setTitle(text, for: .normal)
         layer.cornerRadius = 22.5
         titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
