@@ -11,8 +11,8 @@
 		7936DFEA22BB079C00C11708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7936DFE922BB079C00C11708 /* Assets.xcassets */; };
 		7936DFED22BB079C00C11708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7936DFEB22BB079C00C11708 /* LaunchScreen.storyboard */; };
 		7936DFF522BB0C7100C11708 /* MCNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFF422BB0C7100C11708 /* MCNavigationController.swift */; };
-		7936DFF722BB1BBD00C11708 /* ProductsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFF622BB1BBD00C11708 /* ProductsController.swift */; };
-		7936DFF922BB1D6500C11708 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFF822BB1D6500C11708 /* CartController.swift */; };
+		7936DFF722BB1BBD00C11708 /* MCProductsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFF622BB1BBD00C11708 /* MCProductsController.swift */; };
+		7936DFF922BB1D6500C11708 /* MCCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFF822BB1D6500C11708 /* MCCartController.swift */; };
 		7936DFFB22BB207300C11708 /* MCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFFA22BB207300C11708 /* MCButton.swift */; };
 		7936DFFD22BB2BA800C11708 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */; };
 /* End PBXBuildFile section */
@@ -24,8 +24,8 @@
 		7936DFEC22BB079C00C11708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7936DFEE22BB079C00C11708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7936DFF422BB0C7100C11708 /* MCNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCNavigationController.swift; sourceTree = "<group>"; };
-		7936DFF622BB1BBD00C11708 /* ProductsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsController.swift; sourceTree = "<group>"; };
-		7936DFF822BB1D6500C11708 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
+		7936DFF622BB1BBD00C11708 /* MCProductsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProductsController.swift; sourceTree = "<group>"; };
+		7936DFF822BB1D6500C11708 /* MCCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCCartController.swift; sourceTree = "<group>"; };
 		7936DFFA22BB207300C11708 /* MCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCButton.swift; sourceTree = "<group>"; };
 		7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,13 +64,37 @@
 				7936DFE922BB079C00C11708 /* Assets.xcassets */,
 				7936DFEB22BB079C00C11708 /* LaunchScreen.storyboard */,
 				7936DFEE22BB079C00C11708 /* Info.plist */,
-				7936DFF422BB0C7100C11708 /* MCNavigationController.swift */,
-				7936DFF622BB1BBD00C11708 /* ProductsController.swift */,
-				7936DFF822BB1D6500C11708 /* CartController.swift */,
-				7936DFFA22BB207300C11708 /* MCButton.swift */,
-				7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */,
+				79BBBE3D22BC123600E36B58 /* Controllers */,
+				79BBBE3E22BC124B00E36B58 /* Controls */,
+				79BBBE3F22BC125400E36B58 /* Extension */,
 			);
 			path = ecommerceIAP;
+			sourceTree = "<group>";
+		};
+		79BBBE3D22BC123600E36B58 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7936DFF422BB0C7100C11708 /* MCNavigationController.swift */,
+				7936DFF622BB1BBD00C11708 /* MCProductsController.swift */,
+				7936DFF822BB1D6500C11708 /* MCCartController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		79BBBE3E22BC124B00E36B58 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				7936DFFA22BB207300C11708 /* MCButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		79BBBE3F22BC125400E36B58 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +169,10 @@
 			files = (
 				7936DFFB22BB207300C11708 /* MCButton.swift in Sources */,
 				7936DFF522BB0C7100C11708 /* MCNavigationController.swift in Sources */,
-				7936DFF922BB1D6500C11708 /* CartController.swift in Sources */,
+				7936DFF922BB1D6500C11708 /* MCCartController.swift in Sources */,
 				7936DFFD22BB2BA800C11708 /* UIColor+theme.swift in Sources */,
 				7936DFE322BB079700C11708 /* AppDelegate.swift in Sources */,
-				7936DFF722BB1BBD00C11708 /* ProductsController.swift in Sources */,
+				7936DFF722BB1BBD00C11708 /* MCProductsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

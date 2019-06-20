@@ -1,5 +1,5 @@
 //
-//  ProductsController.swift
+//  MCProductsController
 //  ecommerceIAP
 //
 //  Created by Max Nelson on 6/19/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsController: UIViewController {
+class MCProductsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
