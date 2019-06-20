@@ -40,12 +40,13 @@ class MCProductsController: UIViewController {
         
         tableView.register(MCProductCell.self, forCellReuseIdentifier: "CELL")
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
 extension MCProductsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
 }
 
@@ -56,7 +57,6 @@ extension MCProductsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
-        cell.textLabel?.text = "this is a cell"
         cell.selectionStyle = .none
         return cell
     }
