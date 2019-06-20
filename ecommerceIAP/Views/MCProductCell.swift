@@ -44,6 +44,23 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
+    let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.text = "5/5"
+        label.textColor = .primaryOne
+        return label
+    }()
+    
+    let addToCartButton:UIButton = {
+        let button = MCButton(text: "+", width: 25, height: 25, hasShadow: false)
+        button.layer.cornerRadius = 12.5
+        return button
+    }()
+    
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -64,9 +81,23 @@ class MCProductCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         
+        let controlsStack = UIStackView(arrangedSubviews: [ratingLabel, addToCartButton])
+        controlsStack.spacing = 30
+//        controlsStack.distribution = .equalSpacing
+        //        controlsStack.setCustomSpacing(20, after: authorLabel)
+        controlsStack.axis = .vertical
+        controlsStack.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(controlsStack)
+        
         stackView.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 10).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: controlsStack.leadingAnchor, constant: -10).isActive = true
         stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        
+        controlsStack.leadingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 10).isActive = true
+        controlsStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        controlsStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
         
     }
     
