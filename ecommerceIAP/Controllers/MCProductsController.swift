@@ -10,6 +10,8 @@ import UIKit
 
 class MCProductsController: UIViewController {
     
+    fileprivate let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +31,11 @@ class MCProductsController: UIViewController {
     }
     
     fileprivate func setupTableView() {
-        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
 }
-
