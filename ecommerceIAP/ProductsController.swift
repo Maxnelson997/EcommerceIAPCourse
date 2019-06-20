@@ -21,7 +21,11 @@ class ProductsController: UIViewController {
     }
     
     fileprivate func setupAddToCartButton() {
+        let cart = MCButton(text: "Cart")
+        view.addSubview(cart)
         
+        cart.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25).isActive = true
+        cart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
     }
     
     fileprivate func setupTableView() {
