@@ -44,7 +44,9 @@ class MCProductsController: UIViewController {
 }
 
 extension MCProductsController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 
 extension MCProductsController: UITableViewDataSource {
@@ -55,6 +57,7 @@ extension MCProductsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
         cell.textLabel?.text = "this is a cell"
+        cell.selectionStyle = .none
         return cell
     }
 }
