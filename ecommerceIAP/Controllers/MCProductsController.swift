@@ -37,5 +37,25 @@ class MCProductsController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CELL")
+        tableView.dataSource = self
     }
 }
+
+extension MCProductsController: UITableViewDelegate {
+    
+}
+
+extension MCProductsController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath)
+        cell.textLabel?.text = "this is a cell"
+        return cell
+    }
+}
+
