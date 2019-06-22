@@ -12,6 +12,20 @@ class MCCartController: UIViewController {
     
     fileprivate let tableView: UITableView = UITableView()
     
+    fileprivate let totalLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.text = "Total: 0 credits"
+        return label
+    }()
+    
+    fileprivate let balanceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.text = "Balance: 0 credits"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,8 +51,27 @@ class MCCartController: UIViewController {
         
         tableView.separatorStyle = .none
     }
+    
     fileprivate func setupCartLabels() {
+        let lineOne = UIView()
+        lineOne.backgroundColor = .black
         
+        let lineTwo = UIView()
+        lineTwo.backgroundColor = .black
+        
+        lineOne.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineTwo.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        let stack = UIStackView(arrangedSubviews: [totalLabel, lineOne, balanceLabel, lineTwo])
+        stack.axis = .vertical
+        stack.spacing = 30
+        view.addSubview(stack)
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        stack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
     
     fileprivate func setupCartButtons() {
