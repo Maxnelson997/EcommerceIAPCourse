@@ -10,6 +10,8 @@ import UIKit
 
 class MCCartController: UIViewController {
     
+    fileprivate let tableView: UITableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,9 +24,19 @@ class MCCartController: UIViewController {
     }
     
     fileprivate func setupTableView() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
         
+        tableView.register(MCCartCell.self, forCellReuseIdentifier: "CELL")
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.separatorStyle = .none
     }
-    
     fileprivate func setupCartLabels() {
         
     }
@@ -33,3 +45,26 @@ class MCCartController: UIViewController {
         
     }
 }
+
+extension MCCartController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+extension MCCartController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCCartCell
+        let product = products[indexPath.row]
+        cell.product = product
+        cell.selectionStyle = .none
+        return cell
+    }
+}
+
+
+

@@ -47,6 +47,8 @@ class MCProductsController: UIViewController {
         tableView.register(MCProductCell.self, forCellReuseIdentifier: "CELL")
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.separatorStyle = .none
     }
 }
 

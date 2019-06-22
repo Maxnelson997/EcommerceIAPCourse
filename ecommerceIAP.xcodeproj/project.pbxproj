@@ -17,6 +17,7 @@
 		7936DFFD22BB2BA800C11708 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */; };
 		79BBBE4422BC2C4600E36B58 /* MCProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBBE4322BC2C4600E36B58 /* MCProductCell.swift */; };
 		79BBBE4722BD9F4A00E36B58 /* MCProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBBE4622BD9F4A00E36B58 /* MCProduct.swift */; };
+		79BBBE4922BECA0B00E36B58 /* MCCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBBE4822BECA0B00E36B58 /* MCCartCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7936DFFC22BB2BA800C11708 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		79BBBE4322BC2C4600E36B58 /* MCProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProductCell.swift; sourceTree = "<group>"; };
 		79BBBE4622BD9F4A00E36B58 /* MCProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCProduct.swift; sourceTree = "<group>"; };
+		79BBBE4822BECA0B00E36B58 /* MCCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCCartCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				79BBBE4322BC2C4600E36B58 /* MCProductCell.swift */,
+				79BBBE4822BECA0B00E36B58 /* MCCartCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				79BBBE4722BD9F4A00E36B58 /* MCProduct.swift in Sources */,
 				7936DFF922BB1D6500C11708 /* MCCartController.swift in Sources */,
 				7936DFFD22BB2BA800C11708 /* UIColor+theme.swift in Sources */,
+				79BBBE4922BECA0B00E36B58 /* MCCartCell.swift in Sources */,
 				7936DFE322BB079700C11708 /* AppDelegate.swift in Sources */,
 				7936DFF722BB1BBD00C11708 /* MCProductsController.swift in Sources */,
 			);
