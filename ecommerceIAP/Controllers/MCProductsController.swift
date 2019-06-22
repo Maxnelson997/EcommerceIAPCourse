@@ -28,6 +28,12 @@ class MCProductsController: UIViewController {
         
         cart.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25).isActive = true
         cart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
+        
+        cart.addTarget(self, action: #selector(handleGoToCart), for: .touchUpInside)
+    }
+    
+    @objc fileprivate func handleGoToCart() {
+        navigationController?.pushViewController(MCCartController(), animated: true)
     }
     
     fileprivate func setupTableView() {
