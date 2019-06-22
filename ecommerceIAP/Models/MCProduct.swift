@@ -19,5 +19,6 @@ struct MCProduct {
 
 var products:[MCProduct] = [
     MCProduct(_id: 0, creditPrice: 1, rating: 5, title: "Can't Hurt Me", author: "David Goggins", imageUrl: "2"),
-    MCProduct(_id: 1, creditPrice: 1, rating: 5, title: "The Alchemist", author: "Paulo Author", imageUrl: "1")
+    MCProduct(_id: 1, creditPrice: 1, rating: 4, title: "The Alchemist", author: "Paulo Author", imageUrl: "1"),
+    MCProduct(_id: 2, creditPrice: 2, rating: 3, title: "Product Title", author: "maxcodes.io", imageUrl: "0")
 ]

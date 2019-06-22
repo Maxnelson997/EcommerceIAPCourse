@@ -10,7 +10,19 @@ import UIKit
 
 class MCProductCell: UITableViewCell {
     
-    let productImage: UIImageView = {
+    var product: MCProduct? {
+        didSet {
+            // modify any view
+            guard let product = product else { return }
+            productImage.image = UIImage(named: product.imageUrl)
+            titleLabel.text = product.title
+            authorLabel.text = product.author
+            ratingLabel.text = "\(product.rating)/5"
+            creditLabel.text = "\(product.creditPrice) \(product.creditPrice > 1 ? "credits" : "credit")"
+        }
+    }
+    
+    fileprivate let productImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "1"))
         iv.contentMode = .scaleAspectFit
         iv.layer.masksToBounds = true
@@ -19,7 +31,7 @@ class MCProductCell: UITableViewCell {
         return iv
     }()
     
-    let titleLabel: UILabel = {
+    fileprivate let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -27,7 +39,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let authorLabel: UILabel = {
+    fileprivate let authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
@@ -36,7 +48,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let creditLabel: UILabel = {
+    fileprivate let creditLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -44,7 +56,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let ratingLabel: UILabel = {
+    fileprivate let ratingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
@@ -53,7 +65,7 @@ class MCProductCell: UITableViewCell {
         return label
     }()
     
-    let addToCartButton:UIButton = {
+    fileprivate let addToCartButton:UIButton = {
         let button = MCButton(text: "+", width: 25, height: 25, hasShadow: false)
         button.layer.cornerRadius = 12.5
         return button
