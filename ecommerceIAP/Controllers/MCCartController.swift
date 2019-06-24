@@ -26,15 +26,28 @@ class MCCartController: UIViewController {
         return label
     }()
     
+    fileprivate var booksInCart = [MCProduct]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         navigationItem.title = "cart"
-        
+    
+        curateCart()
         setupTableView()
         setupCartLabels()
         setupCartButtons()
+    }
+    
+    fileprivate func curateCart() {
+        booksInCart = []
+        for product in products {
+            if product.inCart {
+                booksInCart.append(product)
+                cartTotalCredits += 1
+            }
+        }
     }
     
     fileprivate func setupTableView() {
@@ -52,7 +65,11 @@ class MCCartController: UIViewController {
         tableView.separatorStyle = .none
     }
     
+    fileprivate var cartTotalCredits:Int = 0
+    
     fileprivate func setupCartLabels() {
+        totalLabel.text = "Total: \(self.cartTotalCredits) credits"
+        
         let lineOne = UIView()
         lineOne.backgroundColor = .black
         
@@ -115,12 +132,12 @@ extension MCCartController: UITableViewDelegate {
 
 extension MCCartController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return booksInCart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCCartCell
-        let product = products[indexPath.row]
+        let product = booksInCart[indexPath.row]
         cell.product = product
         cell.selectionStyle = .none
         return cell

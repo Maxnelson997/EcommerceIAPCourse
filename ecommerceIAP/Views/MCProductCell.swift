@@ -18,7 +18,14 @@ class MCProductCell: UITableViewCell {
             titleLabel.text = product.title
             authorLabel.text = product.author
             ratingLabel.text = "\(product.rating)/5"
-            creditLabel.text = "\(product.creditPrice) \(product.creditPrice > 1 ? "credits" : "credit")"
+            if product.inCart {
+                creditLabel.text = "added to cart"
+                addToCartButton.backgroundColor = .gray
+                addToCartButton.isEnabled = false
+            } else {
+                creditLabel.text = "\(product.creditPrice) \(product.creditPrice > 1 ? "credits" : "credit")"
+                addToCartButton.isEnabled = true
+            }
         }
     }
     
