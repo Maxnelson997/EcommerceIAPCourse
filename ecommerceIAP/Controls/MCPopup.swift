@@ -9,6 +9,7 @@
 import UIKit
 
 class MCPopup:UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -17,8 +18,16 @@ class MCPopup:UIView {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateOut)))
     }
     
+    fileprivate var effect:UIVisualEffect = UIBlurEffect(style: .prominent)
+    fileprivate lazy var blurView:UIVisualEffectView = UIVisualEffectView(effect: effect)
+    
     fileprivate func setupViews() {
+        let screenFrame = UIScreen.main.bounds
+        self.frame = screenFrame
+        blurView.frame = screenFrame
         
+//        self.backgroundColor = UIColor.gray.withAlphaComponent(0)
+        self.addSubview(blurView)
     }
     
     fileprivate func animateIn() {
