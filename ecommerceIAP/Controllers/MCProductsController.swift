@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MCProductsController: UIViewController {
     
     fileprivate let tableView = UITableView()
@@ -52,6 +53,25 @@ class MCProductsController: UIViewController {
     }
 }
 
+protocol MCCartProtocol {
+    func addProductToCart(product: MCProduct)
+}
+
+extension MCProductsController: MCCartProtocol {
+    func addProductToCart(product: MCProduct) {
+        var productCopy = product
+        productCopy.inCart = true
+        
+        let indexOfProduct = products.firstIndex { (item) -> Bool in
+            item._id == productCopy._id
+        }
+        
+        products[indexOfProduct ?? 0] = productCopy
+        
+        self.tableView.reloadData()
+    }
+}
+
 extension MCProductsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -59,6 +79,7 @@ extension MCProductsController: UITableViewDelegate {
 }
 
 extension MCProductsController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
@@ -67,6 +88,7 @@ extension MCProductsController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! MCProductCell
         let product = products[indexPath.row]
         cell.product = product
+        cell.delegate = self
         cell.selectionStyle = .none
         return cell
     }

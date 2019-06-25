@@ -10,6 +10,8 @@ import UIKit
 
 class MCProductCell: UITableViewCell {
     
+    var delegate: MCCartProtocol?
+    
     var product: MCProduct? {
         didSet {
             // modify any view
@@ -78,12 +80,18 @@ class MCProductCell: UITableViewCell {
         return button
     }()
     
+    @objc fileprivate func handleAddToCart() {
+        guard let delegate = delegate else { return }
+        guard let product = product else { return }
+        delegate.addProductToCart(product: product)
+    }
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupUI()
+        self.addToCartButton.addTarget(self, action: #selector(self.handleAddToCart), for: .touchUpInside)
     }
     
     fileprivate func setupUI() {
