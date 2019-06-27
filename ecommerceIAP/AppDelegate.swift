@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
+        
+        StoreObserver.iapObserver.fetchProducts()
         return true
     }
 
