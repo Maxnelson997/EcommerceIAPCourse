@@ -102,6 +102,17 @@ class MCPopup:UIView {
         
         oneImageView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        buyButton.addTarget(self, action: #selector(self.handleBuy), for: .touchUpInside)
+    
+    }
+    
+    @objc fileprivate func handleBuy() {
+        StoreObserver.iapObserver.purchaseCredit { (success) in
+            if success {
+                print("siuccess")
+            }
+            print("asdfok")
+        }
     }
     
     fileprivate func animateIn() {
