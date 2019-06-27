@@ -9,7 +9,17 @@
 import UIKit
 import StoreKit
 
-class StoreObserver: NSObject, SKPaymentTransactionObserver {
+class StoreObserver: NSObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
+    
+    var products = [SKProduct]()
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if response.products.count > 0 {
+            print(response.products.debugDescription)
+            products = response.products
+        }
+    }
+    
     
     static var iapObserver = StoreObserver()
     
@@ -20,6 +30,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     func fetchProducts() {
         let productIds = NSSet(object: IAP_CREDIT_PRODUCT) as! Set<String>
         productsRequest = SKProductsRequest(productIdentifiers: productIds)
+        productsRequest.delegate = self
         productsRequest.start()
     }
     
